@@ -94,7 +94,7 @@ module Fastlane
           puts "删除TestFlight测试员：#{ids.size}个？ (Y/n)"
           if gets.chomp != 'Y'
             puts "Cancel，任务取消，此次任务结束\n================================"
-            return []
+            return ids
           end
         end
 
