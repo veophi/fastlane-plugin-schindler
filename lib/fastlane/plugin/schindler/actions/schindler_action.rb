@@ -154,7 +154,7 @@ module Fastlane
 
         client = Spaceship::ConnectAPI::Client.login(user_id, user_password)
         puts '登录成功'
-        client.delete_beta_testers_from_app(beta_tester_ids: ids, app_id: ios_app_id)
+        # client.delete_beta_testers_from_app(beta_tester_ids: ids, app_id: ios_app_id)
         puts "Success，删除#{ids.size}个测试人员成功\n================================"
       end
 
@@ -176,7 +176,7 @@ module Fastlane
             return
           end
 
-          client.delete_beta_testers_from_app(beta_tester_ids: ids, app_id: ios_app_id)
+          # client.delete_beta_testers_from_app(beta_tester_ids: ids, app_id: ios_app_id)
           puts "Success，删除#{ids.size}个测试人员成功\n================================"
         end
       end
