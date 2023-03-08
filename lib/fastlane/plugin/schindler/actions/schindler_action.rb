@@ -86,18 +86,11 @@ module Fastlane
 
         puts "\n测试员筛选完成\n================================"
         if ids.size < 1
-          puts "当前规则下，测试员已经删完干净了\n================================"
+          puts "当前规则下，没有了\n================================"
           return []
         end
 
-        unless auto_confirm
-          puts "删除TestFlight测试员：#{ids.size}个？ (Y/n)"
-          if gets.chomp != 'Y'
-            puts "Cancel，任务取消，此次任务结束\n================================"
-            return ids
-          end
-        end
-
+        puts "TestFlight测试员：#{ids.size}个\n================================"
         ids
       end
 
@@ -155,7 +148,7 @@ module Fastlane
         client = Spaceship::ConnectAPI::Client.login(user_id, user_password)
         puts '登录成功'
         # client.delete_beta_testers_from_app(beta_tester_ids: ids, app_id: ios_app_id)
-        puts "Success，删除#{ids.size}个测试人员成功\n================================"
+        #puts "Success，删除#{ids.size}个测试人员成功\n================================"
       end
 
       def self.add_process_uninstall_expired(filter_type: (Filter_Uninstall | Filter_Expire), auto_confirm: false, ios_app_id: nil, user_id: nil, user_password: nil)
@@ -172,12 +165,12 @@ module Fastlane
 
           ids = exec_process(testers, filter_type, auto_confirm)
           if ids.size < 1
-            puts "未安装 or 已过期 测试员清除完毕\n================================"
+            puts "未安装 or 已过期 测试员无\n================================"
             return
           end
 
           # client.delete_beta_testers_from_app(beta_tester_ids: ids, app_id: ios_app_id)
-          puts "Success，删除#{ids.size}个测试人员成功\n================================"
+          #puts "Success，删除#{ids.size}个测试人员成功\n================================"
         end
       end
 
