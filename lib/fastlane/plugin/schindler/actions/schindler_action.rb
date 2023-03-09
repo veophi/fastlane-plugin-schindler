@@ -28,10 +28,10 @@ module Fastlane
 #                                        user_id: user_id, user_password: user_password)
 #        end
         # 再扫描未使用，因为未使用需要全量查询，耗时1小时起步，容易超时
-#        if filter_type & Filter_UnUse > 0
+        if filter_type & Filter_UnUse > 0
           add_process_unused(auto_confirm: auto_confirm, ios_app_id: ios_app_id, user_id: user_id,
                              user_password: user_password)
-#        end
+        end
       end
 
       def self.exec_process(testers, filter_type, auto_confirm)
@@ -180,6 +180,10 @@ module Fastlane
 
       def self.description
         'Schindler is a TestFlight tool for release useless quota.'
+      end
+      
+      def self.authors
+        ['xjk_001@163.com']
       end
 
       def self.return_value
